@@ -14,11 +14,11 @@ public Country(){
   imageFile = "";
 }
 
-public Country(String n, String c, String l, String i){
-  name = n;
-  capital = c;
-  lang = l;
-  imageFile = i;
+public Country(String name, String capital, String language, String imageFile){
+  this.name = name;
+  this.capital = capital;
+  lang = language;
+  this.imageFile = imageFile;
 }
 
   // Write accessor/get methods for each instance variable that returns it.

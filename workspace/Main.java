@@ -37,7 +37,28 @@ public class Main
     // create a new Country using your constructor with 4 arguments (each of the arguments is a different part of the line you've read in)
     // inside the loop, set countryArray[i] to the created Country object
     //after running this method your array should contain all 10 countries from inside the countries-data file.
-     
+    try{
+     int i = 0;
+     Scanner scan = new Scanner(file);
+      while (scan.hasNext())
+      {
+          String line = scan.nextLine();
+          // Split each line into its attributes name, type1, etc.
+          String[] data = line.split(",");
+          String name = data[1];
+          String capital = data[2];
+          String lang = data[3];
+          String imageFile = data[4];
+
+          Country country = new Country(name, capital, lang, imageFile);
+          countryArray[i] = country;
+
+          i++;
+      }
+    }
+    catch(IOException e){
+      System.out.println("File not found");
+    }
     
   }
 
