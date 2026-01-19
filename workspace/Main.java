@@ -45,10 +45,10 @@ public class Main
           String line = scan.nextLine();
           // Split each line into its attributes name, type1, etc.
           String[] data = line.split(",");
-          String name = data[1];
-          String capital = data[2];
-          String lang = data[3];
-          String imageFile = data[4];
+          String name = data[0];
+          String capital = data[1];
+          String lang = data[2];
+          String imageFile = data[3];
 
           Country country = new Country(name, capital, lang, imageFile);
           countryArray[i] = country;
@@ -69,16 +69,19 @@ public class Main
     Country c = countryArray[index];
     
     // Use its get method to get the its image file name and save it into imagefile variable below instead of worldmap.jpg.
-    String imagefile = c.getimageFile();
+    String imagefile = "worldmap.jpg";
+    imagefile = c.getimageFile();
     // Use the following code to create an new Image Icon and put it into the GUI
     img = new ImageIcon("/workspaces/Countries/workspace/"+imagefile);
     imageLabel.setIcon(img);
+    outputLabel.setText("What is the name of this country");
     
   }
   
   /* nextButton should increment index. If the index is greater than 9, reset it back to 0. Clear the outputLabel to empty string using setText, and call showCountry();*/
   public void nextButtonClick()
   {
+    index++;
    if (index > 9){
     index = 0;
    } 
@@ -89,14 +92,26 @@ public class Main
   /* reviewButton should get the country at index from the countryArray, call its toString() method and save the result, print it out with System.out.println and as an argument to outputLabel.setText( text to print out ); */
   public void reviewButtonClick()
   {
-     
+     Country c = countryArray[index];
+     String info = c.toString();
+     System.out.println(info);
+     outputLabel.setText(info);
   }
 
   /* quizButton should clear the outputLabel (outputLabel.setText to empty string), get the country at index from countryArray, print out a question about it like What country is this? and/or What's this country's capital?. Get the user's answer using scan.nextLine() and check if it is equal to the country's data using its get methods and print out correct or incorrect.
   */
   public void quizButtonClick()
   {
-    Scanner scan = new Scanner(System.in); 
+    Country c = countryArray[index];
+    Scanner scan = new Scanner(System.in);
+    String input = userInput.getText();
+    input = input.toLowerCase();
+    if (input.equals(c.getName())){
+      System.out.println("Correct");
+    }
+    else{
+      System.out.println("Incorrect");
+    }
     
     
     

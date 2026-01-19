@@ -121,7 +121,7 @@ public void setimageFile(String imageFile){
 //  Post-condition: It will print out the what the country is, its capital, and language
 //
   public String toString(){
-  return "" + name + "'s capital is + capital + and its primary language is " + lang;
+  return "" + name + "'s capital is " + capital + " and its primary language is " + lang;
 }
 
 
