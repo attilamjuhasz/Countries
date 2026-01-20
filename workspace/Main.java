@@ -106,11 +106,13 @@ public class Main
     Scanner scan = new Scanner(System.in);
     String input = userInput.getText();
     input = input.toLowerCase();
-    if (input.equals(c.getName())){
+    if (input.equals(c.getName().toLowerCase())){
       System.out.println("Correct");
+      outputLabel.setText("Correct");
     }
     else{
       System.out.println("Incorrect");
+      outputLabel.setText("Incorrect");
     }
     
     
